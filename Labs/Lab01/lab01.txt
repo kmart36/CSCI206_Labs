@@ -1,0 +1,30 @@
+Katy Martinson
+CSCI206
+Lab01
+1/18/2022
+
+1. One line mkdir command, making parent directories if needed: mkdir -p ~/CSCI206-S22-61/Labs/Lab** 
+2. One sentence description of each of the following commands: 
+ls - List information about the FILEs (the current directory by default).
+pwd - Print the full filename of the current working directory.
+cp - Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+mv - Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+rm - Removes files or directories.
+mkdir - Create the DIRECTORY(ies), if they do not already exist.
+rmdir - Remove the DIRECTORY(ies), if they are empty.
+touch - Update the access and modification times of each FILE to the current time.
+cat - Concatenate FILE(s) to standard output.
+more - A filter for paging through text one screenful at a time.
+less - Like the more commands, but which allows backward movement in the file as well as forward movement.
+head - Print the first 10 lines of each FILE to standard output.
+tail - Print the last 10 lines of each FILE to standard output.
+3. The command to start emacs without a GUI - emacs -nw 
+4. The command to show line numbers in vim - :set number
+5. The command to show line numbers in emacs - Alt-x linum-mode
+6. The command to save the content of the file in vim - :w or :wq
+7. The command to save the content of file in emacs - Control-x Control-s
+8. The command to delete the current line in vim - dd
+9. The command to delete the current line in emacs - Control-k or Alt-0 Control-k
+10. After careful consideration, I will use emacs in csci206 as my text editor.
+
+
