@@ -13,3 +13,5 @@
 # reignore these
 *.o
 a.out
+*~
+ClassWork/
