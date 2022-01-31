@@ -1,0 +1,21 @@
+(1) ex1: Checking if salary and isalary work.
+	Grade:  10 / 10
+	Comments: Good!
+(2) ex2: nogood compiles without warning with -Wall. -5 for each warning, -15 for an error
+	Grade:  15 / 15
+	Comments: Good!
+(3) ex3: nogood and nogood.o.
+	Grade:  20 / 20
+	Comments: Good!
+(4) ex4: fsalary works as expected, created Makefile
+	Grade:  15 / 15
+	Comments: Good!
+(5) ex5: checking primefact.py and primefact.c
+	Grade:  20 / 20
+	Comments: Good!
+(6) ex6: switchcase.c compiles without warning and operates correctly.
+	Grade:  20 / 20
+	Comments: Good!
+TOTAL: 100 /100
+
+Graded by: ry005@bucknell.edu
