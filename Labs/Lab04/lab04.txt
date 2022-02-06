@@ -1,0 +1,9 @@
+creat(2): Creates a new file in the given path or overwrites an already-existing file. This function has become obsolete, as open(2) does this automatically. Unlike open, no flags are required. 
+
+open(2): Opens an existing file and returns a file descriptor after given a pathname for a file. This file will remain open until a closing function is called. Can be used with or without a mode. These modes are O_RDONLY, which requests that the file be opened and read-only, O_WRONLY, which requests that the file be opened and write-only, and then O_RDWR, which is read or write.  
+
+read(2): Attempts to read a given file descriptor fd up to a size_t count number of bytes starting from the buffer buf. It will return the number of bytes read on success and a -1 on failure. When bytes are read, the file position will advance by that many bytes unless the number is less than the total bytes. This does not result in an error. 
+
+write(2): Given a file descriptor fd, write will write up to count bytes from the buffer starting at buf. If write is called after a read, it will start writing at where the read left off. When a successful write occurs, the number of bytes written will return. If write fails, it will return a -1. If a partial write occurs, the user can call write again to write the remaining bytes. 
+
+close(2): Will close a file descriptor and will prohibit any other read/write/referral commands to the file descriptor. Record locks will be removed. Close can delete a file if the file descriptor was the last reference to a file which was removed using unlink. Close returns 0 when successful and a -1 when unsuccessful. 
