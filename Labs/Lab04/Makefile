@@ -1,16 +1,16 @@
 CC=gcc
 CFLAGS=-std=c99 -Wall -Werror -g
-SRC=dictionary.c speller.c
-OBJF=dictionary.o speller.o            # objects needed for fsm
+SRC=better_dictionary.c speller.c
+OBJF=better_dictionary.o speller.o            # objects needed for fsm
 EXE=speller                        # executables
 
 all: $(EXE)
 
-%.o:%.c sha256.h
+%.o:%.c dictionary.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-speller: speller.o dictionary.o
-	$(CC) -o $@ speller.o dictionary.o
+speller: speller.o better_dictionary.o
+	$(CC) -o $@ speller.o better_dictionary.o
 
 clean: 
 	/bin/rm -f *.o *~ $(EXE)
