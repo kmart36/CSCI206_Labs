@@ -11,14 +11,15 @@
 	Grade:  25 / 25
 	Comments: Good!
 (5) head: File IO with the standard library
-	Grade:  22 / 25
-	Comments: The file 'alice100.txt' does not exist!
+	Grade:  25 / 25
+	Comments: Regrade, good.
+
 
 (6) wc: Create your own word counter
 	Grade:   0 / 25
 	Comments: This part is removed and will not be count for credit.
 
 
-TOTAL:  72 /100
+TOTAL:  75 /100
 
 Graded by: amm042@bucknell.edu
