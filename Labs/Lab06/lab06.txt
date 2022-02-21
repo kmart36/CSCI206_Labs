@@ -1,0 +1,11 @@
+1. ra: This register, x1, is the return address. When jal is called, the value returned by the procedure is stored here. Ex. sw ra, 12(sp) 
+2. sp: This register, x2, is the stack pointer. This address will point to the stop of the stack, which is similar to an array in other languages. When something is added to the top of the stack, the stack pointer address moves down. Ex. addi sp, sp, -16
+3. Registers to hold parameters and return values for functions/procedures: These registers are x10-x11 or a0-a1. Ex. lw a1, 4(sp) # A value is loaded from the stack and stored in a1. 
+4. Registers to hold temporary values that are not preserved across different function calls: These registers are x5-x7 or t0-t2 and x28-x31 or t3-t6. They can be reused across different functions as the value is not saved. They are used for pseudoinstructions.
+5. Registers to hold values that are supposed to be preserved across different function calls: These registers are x9 or s1 and x18-x27 or s2-s11. The values saved in these register are saved throughout the whole code sequence. 
+
+li a7, 8
+li a1, 32
+add a0, t0, zero
+ecall
+
