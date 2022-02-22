@@ -1,0 +1,29 @@
+(1) headers: Successfully separate the header file and implementation file tokens.h and tokens.c, [2 pts each] compile and run fms with separated files [2 pts]. [3 points] Correctly revised Makefile
+	Grade:   7 /  9
+	Comments: Automated check failed.
+fsm.c is correct, tokens.h does not exist. You should also add all files requried to compile the program, such as the header file, to your git repo even it is not listed on the document.
+
+
+(2) notes: [6 points, 1 point each] Each of the five system calls is described appropriately in lab04.txt. The flags O_RDONLY,  O_WRONLY,  and  O_RDWR are described correctly.
+	Grade:   6 /  6
+	Comments: Good!
+(3) examine: The program examine works properly. -1 for each minor error or missing output.
+	Grade:  10 / 10
+	Comments: Good!
+(4) sha_sum: Successfully completed sha_sum and the output matches the system sha256sum program.
+	Grade:  15 / 25
+	Comments: Automated check failed.
+sha256.c and sha256.h doesn't exist so I can't tell if the functions sha256_xxx does the right job as required.
+
+(5) dict: [20 pts] The program speller works properly using dictionary.c.
+	Grade:  20 / 20
+	Comments: Good!
+(6) btrdict: [20 pts] better_dictionary has an implementation of some hash function to improve performance.
+	Grade:  20 / 20
+	Comments: Good!
+(7) makefile: Student added a Makefile to compile sha_sum and speller
+	Grade:  10 / 10
+	Comments: Good!
+TOTAL:  88 /100
+
+Graded by: ry005@bucknell.edu
