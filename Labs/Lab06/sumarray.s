@@ -32,7 +32,7 @@
 # The sum is stored in $s0 and the count in $s1
 
 	.data
-A:	.word 5, 4, 3, 2, 4, 1, 0 # declare array int A[]={5,4,3,2,4,1,0};
+A:	.word 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 0# declare array int A[]={5,4,3,2,4,1,0};
 
     .globl main
 	.text	
