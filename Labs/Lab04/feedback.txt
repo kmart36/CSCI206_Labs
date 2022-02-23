@@ -1,8 +1,6 @@
 (1) headers: Successfully separate the header file and implementation file tokens.h and tokens.c, [2 pts each] compile and run fms with separated files [2 pts]. [3 points] Correctly revised Makefile
-	Grade:   7 /  9
-	Comments: Automated check failed.
-fsm.c is correct, tokens.h does not exist. You should also add all files requried to compile the program, such as the header file, to your git repo even it is not listed on the document.
-
+	Grade:   9 /  9
+	Comments: Good!
 
 (2) notes: [6 points, 1 point each] Each of the five system calls is described appropriately in lab04.txt. The flags O_RDONLY,  O_WRONLY,  and  O_RDWR are described correctly.
 	Grade:   6 /  6
@@ -24,6 +22,6 @@ sha256.c and sha256.h doesn't exist so I can't tell if the functions sha256_xxx 
 (7) makefile: Student added a Makefile to compile sha_sum and speller
 	Grade:  10 / 10
 	Comments: Good!
-TOTAL:  88 /100
+TOTAL:  90 /100
 
 Graded by: ry005@bucknell.edu
