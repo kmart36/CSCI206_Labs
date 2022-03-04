@@ -1,0 +1,27 @@
+(1) get_byte: get_bytes function implemented and logic is correct and only used allowed operators.
+	Grade:   5 /  5
+	Comments: Good!
+(2) negate: negate function implemented and logic is correct and only used allowed operators.
+	Grade:   5 /  5
+	Comments: Good!
+(3) is_positive: is_positive function implemented and logic is correct and only used allowed operators.
+	Grade:   5 /  5
+	Comments: Good!
+(4) limits: tmin and tmax functions implemented and logic is correct and only used allowed operators.
+	Grade:   5 /  5
+	Comments: Good!
+(5) floats: Added the correct values for one_half_single and one_half_double.
+	Grade:  10 / 10
+	Comments: Good!
+(6) inspector: inspect_float and inspect_double work correctly. Implemented f2u and u2f.
+	Grade:  25 / 25
+	Comments: Good!
+(7) precision: precision implemented. Comments have the correct value for the next float after 1.0. Comments discuss how precision changes for large/small numbers.
+	Grade:  25 / 25
+	Comments: Good!
+(8) sum: sum added with comments describing why it doesn't work as-is. Implemented the is_near function and modified sum to use it with an appropriate epsilon.
+	Grade:  20 / 20
+	Comments: Good!
+TOTAL: 100 /100
+
+Graded by: ry005@bucknell.edu
