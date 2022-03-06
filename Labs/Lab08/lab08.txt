@@ -1,0 +1,1 @@
+The course_t structure is 72 bytes in size while the course_node_t struct is 32 bytes. course_t is larger because it defines fixed arrays which takes up a lot of space while course_node_t defines pointers instead which take up a lot less space. 
