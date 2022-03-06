@@ -1,0 +1,22 @@
+(0) prelab: [3 point each, 15 total] Answers for each of the five register groups. [10 points] Complete instruction sequence to read a string in RARS.
+	Grade:  25 / 25
+	Comments: Good!
+
+(4) Exercise 4: All register numbers in mystery.s converted to the appropriately named register. -1 for each register not converted.
+	Grade:  10 / 10
+	Comments: Good!
+(5) Exercise 5: Comments added to mystery.asm clearly indicate an understanding of what the program is doing (not just what each line does in isolation).
+	Grade:  15 / 15
+	Comments: Good!
+(6) Exercise 6: [20 pts] c_mystery.c was created and it implements the proper algorithm.
+	Grade:  20 / 20
+	Comments: Good!
+(7) Exercise 7: generated c_mystery.s using riscv-gcc
+	Grade:  15 / 15
+	Comments: Good!
+(8) Exercise 8: Completed sumarray.s correctly.
+	Grade:  15 / 15
+	Comments: Good!
+TOTAL: 100 /100
+
+Graded by: ry005@bucknell.edu
