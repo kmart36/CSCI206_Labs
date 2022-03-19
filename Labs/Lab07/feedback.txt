@@ -1,0 +1,24 @@
+(1) exit: successfully modified exit.s to return 42.
+	Grade:   5 /  5
+	Comments: Good!
+(2) double: Create and execute double.s with calling procedure extra in RARS. Record the output in lab07.txt.
+	Grade:  10 / 10
+	Comments: Good!
+(3) double_c: Create and execute double.c that calls the double_value procedure. Record the output in lab07.txt.
+	Grade:  10 / 10
+	Comments: Good!
+(4) counte: counte implemented in C/asm and compiles with Makefile.
+	Grade:  20 / 20
+	Comments: Good!
+(5) time: time.c/s correct and compiles with Makefile.
+	Grade:  20 / 20
+	Comments: Good!
+(6) list_primes:  is_prime.s works the given list_primes.c file and updated Makefile.
+	Grade:  15 / 15
+	Comments: Good!
+(7) check_primes: check_primes.c/s correct and compiles with Makefile.
+	Grade:  20 / 20
+	Comments: Good!
+TOTAL: 100 /100
+
+Graded by: ry005@bucknell.edu
