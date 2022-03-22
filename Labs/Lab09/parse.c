@@ -25,14 +25,16 @@ int main(int argc, char* argv[])
   while (fgets(str, 60, f) != NULL) {
 	for (int i = 0; i < strlen(str); i++) {
 	  if (str[i] == ',') {
+		char *token = strtok(str, ",");
+		token = strtok(NULL, "\n");
 		if (str[0] == 'I') {
-		  i_bytes += (int)(str[i + 1]) - 48;
+		  i_bytes += atoi(token);
 		}
 		else if (str[1] == 'S') {
-		  s_bytes += (int)(str[i + 1]) - 48;
+		  s_bytes += atoi(token);
 		}
 		else if (str[1] == 'L') {
-		  l_bytes += (int)(str[i + 1]) - 48;
+		  l_bytes += atoi(token);
 		}
 	  }
 	}

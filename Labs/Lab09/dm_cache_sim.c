@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
   long hits = 0;
 
   // TODO process input file.
-
+  
 
   // finally print results, do not change the last 3 lines of output.
   printf("  Hits      %ld\n", hits);
