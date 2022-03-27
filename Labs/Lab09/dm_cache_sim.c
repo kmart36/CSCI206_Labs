@@ -31,10 +31,23 @@ int main(int argc, char* argv[])
   // count - hits = misses
   long count = 0;
   long hits = 0;
+  int cache_lines = cache_size / block_size;
+  long *cache = malloc(sizeof(long) * cache_lines);
+  char line[60];
 
   // TODO process input file.
-  
-
+  while (fgets(line, 60, f) != NULL) {
+	char *address = strtok(line, " ");
+	address = strtok(NULL, ",");
+	char *pEnd;
+	long tag = strtol(address, &pEnd, 16) / cache_size;
+	int index = (strtol(address, &pEnd, 16) / block_size) % cache_lines;
+	if (cache[index] == tag) {
+	  hits++;
+	}
+	count++;
+	cache[index] = tag;
+  }
   // finally print results, do not change the last 3 lines of output.
   printf("  Hits      %ld\n", hits);
   printf("  Misses    %ld\n", count-hits);
