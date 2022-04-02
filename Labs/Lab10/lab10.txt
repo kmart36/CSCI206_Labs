@@ -14,3 +14,7 @@
    info local
 8. How do you print a trace of how your program got to where it is?
    bt
+
+
+Exercise 2: The problem was that when the two lists being compared were of different lengths, one of the nodes would reach a null value first and there would be an error when trying to access the null
+variable. Therefore, I had to add an if statement that checked if one value was null while the other was not, indicating that they are two different lengths and therefore not equal (returned 0). 

@@ -48,8 +48,10 @@ void ll_print(const node* list){
 int ll_equal(const node* a, const node* b) {
 
   /* base case, empty lists are equal */
-  if (a == NULL)
+  if (a == NULL && b == NULL)
   	return a == b;
+  else if (a == NULL || b == NULL)
+	return 0;
 
   /* check if the first element is the same, if not we're done!  */
 	if (a->val != b->val)
@@ -61,5 +63,22 @@ int ll_equal(const node* a, const node* b) {
 
 /* TODO: write this function, see lab writeup */
 int ll_has_cycle(node *head) {
+  node *hare = head;
+  node *turtle = head;
+  int count = 0;
+  while (hare != NULL) {
+	while (count < 2 && hare != NULL) {
+	  hare = hare->next;
+	  count++;
+	}
+	count = 0;
+	if (hare == NULL) {
+	  return 0;
+	}
+	turtle = turtle->next;
+	if (turtle == hare) {
+	  return 1;
+	}
+  }
   return 0;
 }
