@@ -1,0 +1,24 @@
+(1) find_size: Figure out the sizes of the two structures and explain correctly.
+	Grade:   5 /  5
+	Comments: Good!
+(2) strnodeh:  strnode.h has a working definition of struct strnode with include guard.
+	Grade:  10 / 10
+	Comments: Good!
+(3) strnodec: strnode.c has a correct strnode_create that uses malloc and valid copy function; -3 if it does not set length, str, or next.
+	Grade:  10 / 10
+	Comments: Good!
+(4) Exercise 4: node_test matches strnode_test output.
+	Grade:  10 / 10
+	Comments: Good!
+(5) Exercise 5: No memory leaks in node_test.
+	Grade:  10 / 10
+	Comments: Good!
+(6) Exercise 6: The stack ADT is defined correctly in stack.h, and implemented correctly in stack.c, which contains functions create, empty, destroy, push, and pop (5 points each).
+	Grade:  25 / 25
+	Comments: Good!
+(7) Exercise 7: The program pcalc runs correctly (15 points) without memory leaks (10 points) and is built with a proper Makefile (5 points).
+	Grade:  30 / 30
+	Comments: Good!
+TOTAL: 100 /100
+
+Graded by: ry005@bucknell.edu
