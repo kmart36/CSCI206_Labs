@@ -89,18 +89,54 @@ void full_add(char carry_in, char a, char b, char* sum, char* carry_out){
  * c = a + b
  */
 void bigint_add(struct bigint* c, struct bigint* a, struct bigint* b){
+  char carry[a->N];
+  int result;
+  memset(carry, '0', a->N);
+  for (int i = 0; i < a->N; i++) {
+	result = (carry[i] - 48) + (a->digit[i] - 48) + (b->digit[i] - 48);
+	if (result == 1 || result == 0) {
+	  c->digit[i] = result + 48;
+	}
+	else if (result % 2 == 0) {
+	  c->digit[i] = '0';
+	  carry[i + 1] = result + 47;
+	}
+	else {
+	  c->digit[i] = '1';
+	  carry[i + 1] = result + 47;
+	}
+  }
+  if (a->digit[a->N - 1] == b->digit[b->N - 1] && b->digit[b->N - 1] != c->digit[c->N - 1]) {
+	printf("ERROR: Overflow\n");
+	exit(1);
+  }
 }
 
 /*
  * out = -in
  */
 void bigint_inv(struct bigint* out, struct bigint* in){
+  for (int i = 0; i < in->N; i++) {
+	if (in->digit[i] == '1') {
+	  out->digit[i] = '0';
+	}
+	else {
+	  out->digit[i] = '1';
+	}
+  }
+  struct bigint* one = malloc(sizeof(struct bigint) + in->N);
+  one->N = in->N;
+  bigint_zero(one);
+  one->digit[0] = '1';
+  bigint_add(out, out, one);
 }
 
 /*
  * c = a - b
  */
 void bigint_sub(struct bigint* c, struct bigint* a, struct bigint* b){
+  bigint_inv(b, b);
+  bigint_add(c, a, b);
 }
 
 /*
@@ -142,6 +178,13 @@ void bigint_mult(
   struct bigint* prod,
   struct bigint* mcand,
   struct bigint* mplier){
+  for (int i = 0; i < mplier->N / 2; i++) {
+	if (mplier->digit[0] == '1') {
+	  bigint_add(prod, prod, mcand);
+	}
+	bigint_lshift(mcand, 1);
+	bigint_rshift(mplier, 1);
+  }
 }
 
 /*
