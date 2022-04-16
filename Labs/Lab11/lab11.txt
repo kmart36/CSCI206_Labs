@@ -1,0 +1,14 @@
+(1.1) Stack smashing is when code is written to corrupt the execution stack by writing past the end of an array declared auto in a routine. Smashing the stack will cause a return from the routine to jump to a 
+random address.
+
+(1.2) When values are stored onto the stack, they are stored directly next to each other. Therefore, if you are working with an array of a certain size, that memory is stored right next to the return 
+references for your function. Because the array has a set size and you are able to store larger things into the array than the size allows, that data can overflow over the return reference in memory. This 
+will cause the segmentation fault because you are attemping to return to a memory address that is incorrect.
+
+(1.3) I think it does, as they are both keeping track of the return value which needs to be kept for storing on the stack. 
+
+(1.4) The example in the paper is based on Intel x86 assembly while we use RISCV assembly. The commands are very different which makes the assembly code as a whole look different. 
+
+(1.5) The printf statement likely printed '5' because the x = 4 statement was skipped over due to the return address being changed to return to the line after that statement. I'm not sure why x is being printed as the hexidecimal integer "10506". 
+
+(1.6) ret is being assigned to a integer pointer which points to the array buffer1 + 24 bytes. Then, another 10 bytes are added to ret. This will move the return address to be after the x = 4 line. 
