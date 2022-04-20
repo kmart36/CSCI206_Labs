@@ -12,3 +12,155 @@ will cause the segmentation fault because you are attemping to return to a memor
 (1.5) The printf statement likely printed '5' because the x = 4 statement was skipped over due to the return address being changed to return to the line after that statement. I'm not sure why x is being printed as the hexidecimal integer "10506". 
 
 (1.6) ret is being assigned to a integer pointer which points to the array buffer1 + 24 bytes. Then, another 10 bytes are added to ret. This will move the return address to be after the x = 4 line. 
+
+Dump of assembler code for function main:
+   0x00000000000104e4 <+0>:     addi    sp,sp,-32
+   0x00000000000104e6 <+2>:     sd      ra,24(sp)
+   0x00000000000104e8 <+4>:     sd      s0,16(sp)
+   0x00000000000104ea <+6>:     addi    s0,sp,32
+   0x00000000000104ec <+8>:     li      a5,5
+   0x00000000000104ee <+10>:    sw      a5,-20(s0)
+   0x00000000000104f2 <+14>:    li      a2,3
+   0x00000000000104f4 <+16>:    li      a1,7
+   0x00000000000104f6 <+18>:    li      a0,1
+   0x00000000000104f8 <+20>:    jal     ra,0x1049c <my_function>
+   0x00000000000104fc <+24>:    li      a5,4
+   0x00000000000104fe <+26>:    sw      a5,-20(s0)
+   0x0000000000010502 <+30>:    lw      a4,-20(s0)
+   0x0000000000010506 <+34>:    lw      a5,-20(s0)
+   0x000000000001050a <+38>:    mv      a2,a4
+   0x000000000001050c <+40>:    mv      a1,a5
+   0x000000000001050e <+42>:    lui     a5,0x10
+   0x0000000000010510 <+44>:    addi    a0,a5,1408 # 0x10580
+   0x0000000000010514 <+48>:    jal     ra,0x103d0 <printf@plt>
+   0x0000000000010518 <+52>:    lw      a5,-20(s0)
+   0x000000000001051c <+56>:    mv      a0,a5
+   0x000000000001051e <+58>:    ld      ra,24(sp)
+   0x0000000000010520 <+60>:    ld      s0,16(sp)
+   0x0000000000010522 <+62>:    addi    sp,sp,32
+   0x0000000000010524 <+64>:    ret
+
+
+
+Dump of assembler code for function my_function:
+   0x000000000001049c <+0>:     addi    sp,sp,-64
+   0x000000000001049e <+2>:     sd      ra,56(sp)
+   0x00000000000104a0 <+4>:     sd      s0,48(sp)
+   0x00000000000104a2 <+6>:     addi    s0,sp,64
+   0x00000000000104a4 <+8>:     mv      a5,a0
+   0x00000000000104a6 <+10>:    mv      a3,a1
+   0x00000000000104a8 <+12>:    mv      a4,a2
+   0x00000000000104aa <+14>:    sw      a5,-52(s0)
+   0x00000000000104ae <+18>:    mv      a5,a3
+   0x00000000000104b0 <+20>:    sw      a5,-56(s0)
+   0x00000000000104b4 <+24>:    mv      a5,a4
+   0x00000000000104b6 <+26>:    sw      a5,-60(s0)
+   0x00000000000104ba <+30>:    jal     ra,0x1048e <nop>
+   0x00000000000104be <+34>:    addi    a5,s0,-32
+   0x00000000000104c2 <+38>:    addi    a5,a5,24
+   0x00000000000104c4 <+40>:    sd      a5,-24(s0)
+   0x00000000000104c8 <+44>:    ld      a5,-24(s0)
+   0x00000000000104cc <+48>:    lw      a5,0(a5)
+   0x00000000000104ce <+50>:    addiw   a5,a5,10
+   0x00000000000104d0 <+52>:    sext.w  a4,a5
+   0x00000000000104d4 <+56>:    ld      a5,-24(s0)
+   0x00000000000104d8 <+60>:    sw      a4,0(a5)
+   0x00000000000104da <+62>:    nop
+   0x00000000000104dc <+64>:    ld      ra,56(sp)
+   0x00000000000104de <+66>:    ld      s0,48(sp)
+   0x00000000000104e0 <+68>:    addi    sp,sp,64
+   0x00000000000104e2 <+70>:    ret
+
+(2.1)
+sp = 0x3ffffff320
+fp = 0x3ffffff330
+ra = 0x3ffffff338
+
+a = 0x3ffffff336
+b = 0x3ffffff33C
+c = 0x3ffffff340
+buffer1 = 0x3ffffff300
+buffer2 = 0x3ffffff2f0
+ret = 0x3ffffff308
+
+(2.2)
+            buffer2       buffer1   sfp   ret    a     b     c
+<------   [            ][        ][    ][    ][    ][    ][    ]
+		  	f2f0		   	f300    f330  f308  f336  f33C  f340
+
+(2.3)
+Calling my_function: 0x104f8
+x = 4: 0x104fc
+print: 0x10514
+
+(2.4) 
+The value of 24 sets ret to where the return address is stored. The value 10 is used to skip over x = 4. 
+
+(3.1)
+fgets is used so that the maximum amount of characters taken from the input is the size of the account array. 
+
+(3.2)
+If the input string is longer than 10 characters, it will overflow the buffer and start writing over other data. This can be a problem if this data is important for the process of the program, like if the return address for the scanf call was overwritten. 
+
+(3.3)
+When using functions that might cause a buffer overflow, manually put in restrictors to prevent this from happening. (Ex. when using scanf, do %9s)
+
+(3.4)
+In over4, what I explained earlier was done. Hard-code in limits for your program so there is no possible chance of an overflow.
+
+(4.1)
+&main = 0x10604 - Text
+&d = 0x3fffa023a0 - Stack
+&i = 0x3fffa0239c - Stack
+&j = 0x3fffa02398 - Stack
+&k = 0x3fffa023bc - Stack
+&buf[0] = 0x3fffa023c0 - Stack
+&buf[1] = 0x3fffa023c1 - Stack
+
+(4.2)
+	0x000000000001060c <+8>:     li      a5,12
+    0x000000000001060e <+10>:    li      a4,1039
+    0x0000000000010612 <+14>:    li      a3,4
+    0x0000000000010614 <+16>:    li      a2,3
+    0x0000000000010616 <+18>:    li      a1,2
+    0x0000000000010618 <+20>:    li      a0,1
+
+(4.3)
+&d = 0x3fffa023a0
+&i = 0x3fffa0239c
+&j = 0x3fffa02398
+buf[0] = 0x3fffa023c0
+buf[1] = 0x3fffa023c1
+
+(4.4)
+fp				0x...f330
+sp				0x...f2e0
+&buf[11]		0x...23cb		
+&buf[10]		0x...23ca
+&buf[9]			0x...23c9
+&buf[8]			0x...23c8
+&buf[7]			0x...23c7
+&buf[6]			0x...23c6
+&buf[5]			0x...23c5
+&buf[4]			0x...23c4
+&buf[3]			0x...23c3
+&buf[2]			0x...23c2
+&buf[1]			0x...23c1
+&buf[0]			0x...23c0
+&k				0x...23bc -- 0x...23bf
+&d				0x...23a0 -- 0x...23bb
+&i				0x...239c -- 0x...239f
+&j				0x...2398 -- 0x...239b
+ra				0x1061e
+
+(4.5)
+Yes, I believe it would be possible to execute code not in the text segment if you were able to change the address of the function to be a part of a different segment. However, you cannot manipulate data in the text segment as this results in a segmentation violation. 
+
+(4.6)
+All of the buf addresses are in the range of 0x12048-0x12053, indicating that the buf array is now stored in the data segment (address is much lower than the stack addresses but still higher than the text address of main). 
+
+(5.1)
+The argv[1] variable is copied into p, which is a pointer to buf of size 20. If argv[i] is larger than this size, stack smashing can occur and important data can be rewritten. This program is insecure because it has no safeguards to prevent the user from entering an argument larger than size 20. 
+
+(5.2)
+The main mistake that programmers will make is assuming the user knows the limits of your code. Safeguards must be implemented that prevents stack smash attacks from being able to occur. 
