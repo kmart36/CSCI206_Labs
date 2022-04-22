@@ -1,3 +1,6 @@
+(1) Exercise 1: Generate memory trace using Valgrind.
+	Grade:  10 / 10
+	Comments: Good!
 (2) Exercise 2: Parse produces the correct results.
 	Grade:  15 / 15
 	Comments: Good!
@@ -13,6 +16,6 @@
 (6) Exercise 6: Did experiments and justified answer for blocked algorithm.
 	Grade:  10 / 10
 	Comments: Good!
-TOTAL:  90 /100
+TOTAL: 100 /100
 
 Graded by: ry005@bucknell.edu
