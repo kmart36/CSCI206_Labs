@@ -23,7 +23,6 @@ void gen_array(unsigned int * array, int len);
 void print_array(unsigned int * array, int len);
 int merge_result(struct param_t *p, int len);
 void* count_even(void *param);
-void* find_max(void *param);
 
 int main(int argc, char *argv[]) 
 {
@@ -49,7 +48,7 @@ int main(int argc, char *argv[])
 	  param[i].from = i*length;
 	  param[i].len = length;
 	  
-	  int ret_v = pthread_create(&(worker[i]), NULL, find_max, (void*)&(param[i]));
+	  int ret_v = pthread_create(&(worker[i]), NULL, count_even, (void*)&(param[i]));
 	  if (ret_v) {
 		 printf("ERROR; return code from pthread_create() is %d\n", ret_v);
 		 exit(-1);
@@ -61,8 +60,8 @@ int main(int argc, char *argv[])
    }
 
    printf("Number of elements %d, number of threads %d\n", TOTAL_NUMS, NUM_THREADS);
-   printf("The max value is %d\n", merge_result(param, NUM_THREADS));
-   print_array(param->array, TOTAL_NUMS);
+   printf("Total number of evens is %d\n", merge_result(param, NUM_THREADS));
+
    pthread_exit(NULL);
 
    return 0;
@@ -90,12 +89,11 @@ void * count_even(void *param)
 
 int merge_result(struct param_t *p, int len) 
 {   
-   int max = 0;
+   int total = 0;
    for (int i = 0; i < len; i ++)
-	 if (p[i].count > max)
-	   max = p[i].count;
+	  total += p[i].count;
 
-   return max;
+   return total;
 }
 
 void print_array(unsigned int * array, int len) 
@@ -105,14 +103,4 @@ void print_array(unsigned int * array, int len)
 	  if ((i + 1) % 10 == 0)
 		 printf("\n");
    }
-}
-
-void * find_max(void *param) {
-  struct param_t *p = (struct param_t *)param;
-  p->count = 0;
-
-  for (int i = p->from; i < p->from + p->len; i++) {
-	if (p->array[i] > p->count)
-	  p->count = p->array[i];
-  }
 }
