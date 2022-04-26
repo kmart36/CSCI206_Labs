@@ -23,6 +23,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "common-lib.h"
 
 /*------------------------------------------------------------------------
@@ -80,17 +81,30 @@ int main(int argc, char *argv[])
 	  Print it on the screen;
 	*/
 	char request[MAX_LENG+1];
-
-
+	
+	
 	/*
 	 * TODO,
 	 * create an HTTP/1.1 GET request for the given pathname
 	 * send the request to the server
 	 * recieve the result and print to the terminal
 	 */
+	sprintf(request, "GET %s HTTP/1.1\r\nHost: %s\r\nConnection: close\r\n\r\n", path, host);
+	int bytes_sent = strlen(request);
+	char buf[MAX_LENG + 1];
 	
+	if (writen(sd, request, bytes_sent) != bytes_sent) {
+	  error("write error");
+	}
 
-	
+	int len = 0;
+
+	while ((len = readn(sd, buf, MAX_LENG)) > 0) {
+	  buf[len] = 0; 
+	  printf("%s", buf);
+	}
+
+	read_rest(sd);
 
 	// tell the OS we want to shutdown this socket
 	shutdown(sd, SHUT_RDWR);

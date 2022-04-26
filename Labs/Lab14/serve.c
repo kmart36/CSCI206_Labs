@@ -143,10 +143,26 @@ void* process_request(void *p)
 			 * contents. 
 			 * IF the requested file does not exist locally, return a HTTP/1.1 404 Header with Content-Lenth: 0
 			 */
-
-
-
-
+		  char response[MAX_LENG + 1];
+		  response[0] = '.';
+		  response[1] = '\0';
+		  strncat(response, path, MAX_LENG);
+		  int len = get_file_len(response);
+		  if (len == -1) {
+			sprintf(head, "HTTP/1.1 406\r\nContent-Length: 0\r\n\r\n");
+			int hlen = strlen(head);
+			if (writen(tp->sd, head, hlen) != hlen){
+				error("Failed to send header\n");
+			}
+		  }
+		  else {
+			sprintf(head, "HTTP/1.1 200 OK\r\nContent-Length: %i\r\n\r\n", len);
+			int hlen = strlen(head);
+			if (writen(tp->sd, &head, hlen) != hlen){
+				error("Failed to send header\n");
+			}
+			send_file(tp->sd, response);
+		  }
 		} else {
 			sprintf(head, "HTTP/1.1 406\r\nContent-Length: 0\r\n\r\n");
 			printf("Method Not Acceptable!\n");
