@@ -1,0 +1,12 @@
+(1) Exercise 1: [2 points] for each question (16) in lab10.txt plus 9 points for fixing example.c.
+	Grade:  25 / 25
+	Comments: Good!
+(2) Exercise 2: ll_equal works and problem was explained in lab10.txt
+	Grade:  30 / 30
+	Comments: Good!
+(3) Exercise 3: ll_cycle works.
+	Grade:  45 / 45
+	Comments: Good!
+TOTAL: 100 /100
+
+Graded by: ry005@bucknell.edu
