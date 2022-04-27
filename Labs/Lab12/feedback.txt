@@ -1,0 +1,18 @@
+(1) ex1: Exercise 1: ex1.c works as expected with bigint.
+	Grade:  10 / 10
+	Comments: Good!
+(2) ex2: Exercise 2: ex2.c works as expected with bigint, 8 points for shift left and 7 points for shift right.
+	Grade:  15 / 15
+	Comments: Good!
+(3) ex3: Exercise 3: bigint addition implemented correctly so that ex3.c runs as expected.
+	Grade:  25 / 25
+	Comments: Good!
+(4) ex4: Exercise 4: bigint subtraction implemented correctly so that ex4.c runs as expected.
+	Grade:  25 / 25
+	Comments: Good!
+(5) ex5: Exercise 5: bigint multiplication implemented correctly so that ex5.c runs as expected.
+	Grade:  25 / 25
+	Comments: Good!
+TOTAL: 100 /100
+
+Graded by: ry005@bucknell.edu
