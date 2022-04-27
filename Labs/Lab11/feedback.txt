@@ -1,0 +1,22 @@
+(1) Exercise 1: Answer the questions in lab11.txt
+	Grade:   0 / 25
+	Comments: Good
+
+(2) Exercise 2: Answer the questions in lab11.txt
+	Grade:  16 / 16
+	Comments: Good
+
+(3) Exercise 3: Answer the questions in lab11.txt
+	Grade:  20 / 20
+	Comments: Good
+
+(4) Exercise 4: Answer the questions in lab11.txt
+	Grade:  30 / 30
+	Comments: Good
+
+(5) Exercise 5: Answer the questions in lab11.txt
+	Grade:   9 /  9
+	Comments: Good!
+TOTAL:  75 /100
+
+Graded by: ry005@bucknell.edu
