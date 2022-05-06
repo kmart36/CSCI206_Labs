@@ -1,5 +1,5 @@
 (1) ex1: Exercise 1: complete thread_find_max.c and use pthreads to find the maximum value in an array, with appropriate Makefile.
-	Grade:   0 / 15
+	Grade:  15 / 15
 	Comments: Good
 
 (2) ex2: Exercise 2: in selection_sort.c implement the single-thread selection sort that works as expected, with appropriate Makefile.
@@ -11,6 +11,6 @@
 (4) ex4: lab13.txt has benchmark data and discussion of results. A plot (img/pdf) is included in git repo.
 	Grade:  25 / 25
 	Comments: Good!
-TOTAL:  85 /100
+TOTAL: 100 /100
 
 Graded by: ry005@bucknell.edu
